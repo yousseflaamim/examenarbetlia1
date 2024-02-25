@@ -2,9 +2,9 @@ name: CI
 
 on:
   push:
-    branches: [ master ]
+    branches: [ main ]
   pull_request:
-    branches: [ master ]
+    branches: [ main ]
 
 jobs:
   build:
@@ -21,8 +21,7 @@ jobs:
           cache: maven
 
       - name: Build with Maven
-        run: |
-          cd examenarbetlia1  # Change directory to the root of your Maven project
-          mvn clean install
+        run:  mvn clean install
+         
 
   
