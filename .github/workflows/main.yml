@@ -1,31 +1,25 @@
 name: CI
+name: project cicd flow
 
 on:
   push:
-    branches:
-      - main
+    branches: [ main ]
   pull_request:
-    branches:
-      - main
+    branches: [ maain ]
 
 jobs:
   build:
+
     runs-on: windows-latest
 
     steps:
-    - name: Checkout repository
-      uses: actions/checkout@v2
-
-    - name: Set up JDK
-      uses: actions/setup-java@v2
+    - uses: actions/checkout@v2
+    - name: Set up JDK 21
+      uses: actions/setup-java@v1
       with:
+        java-version: '21'
         distribution: 'adopt'
-        java-version: '11' 
-
+        cache: maven
     - name: Build with Maven
-      run: mvn -B package --file pom.xml 
-    - name: Run tests
-      run: mvn -B test # Use 'mvn' instead of 'mvnw.cmd'
-
-
+      run: mvn clean install
   
