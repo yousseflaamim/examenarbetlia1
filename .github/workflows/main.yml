@@ -1,6 +1,4 @@
 name: CI
-name: project cicd flow
-
 on:
   push:
     branches: [ main ]
