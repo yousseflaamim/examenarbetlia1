@@ -28,5 +28,4 @@ jobs:
     - name: Run tests
       run: mvnw.cmd -B test
 
-    - name: Deploy application
-      run: |
+  
